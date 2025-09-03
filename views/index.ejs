@@ -1,0 +1,96 @@
+<% layout('/views/layout.ejs') %>
+
+<section id="hero" class="hero">
+  <article id="heroCard" class="heroCard">
+    <section class="introHeader">
+      <aside class="introAvatar" aria-hidden="true">MJ</aside>
+      <article class="introText">
+        <h3 class="introName">Mohamed Jalloh</h3>
+        <p class="introRole">Full-Stack Developer</p>
+      </article>
+    </section>
+
+    <section class="social-bio">
+      <p class="introBio">
+        I build fast, accessible web apps and clean UI systems. Currently
+        exploring React/Next.js, Node.js, and modern CSS.
+      </p>
+
+      <!-- Server-render socials (still compatible with your CSS) -->
+      <ul class="social-ul">
+        <% (socialLinks || []).forEach(({name, href, icon}) => { %>
+          <li class="social-li">
+            <a class="social-li-a" href="<%= href %>" aria-label="<%= name %>" <%= /^https?:\/\//i.test(href) ? 'target="_blank" rel="noopener noreferrer"' : '' %>>
+              <% if (icon) { %><i class="<%= icon %>"></i><% } %>
+              <span class="social-text"><%= name %></span>
+            </a>
+          </li>
+        <% }) %>
+      </ul>
+    </section>
+  </article>
+</section>
+
+<!-- Home preview (~25%) -->
+<section id="previewProject" class="previewProject">
+  <article class="sectionContainer">
+    <h2 class="sectionTitle">My Latest Work</h2>
+    <section class="subContainer">
+      <article id="homeProjectsContainer">
+        <% (previewProjects || []).forEach(p => { %>
+          <section class="projectCard">
+            <h3 class="project-title"><%= p.name %></h3>
+            <article class="flip" aria-live="polite">
+              <section class="flip-inner">
+                <article class="flip-front">
+                  <img src="<%= p.image %>" alt="<%= p.name %>" class="project-img" />
+                </article>
+                <article class="flip-back">
+                  <section class="description-flex">
+                    <p class="description"><%= p.description %></p>
+                    <ul class="tech-list">
+                      <% (p.techStack || []).forEach(t => { %>
+                        <li class="tech-item"><%= t %></li>
+                      <% }) %>
+                    </ul>
+                  </section>
+                </article>
+              </section>
+            </article>
+
+            <article class="links-flex">
+              <button class="infoBox" type="button" aria-pressed="false" title="More info">
+                <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+                <span class="sr-only">Toggle details</span>
+              </button>
+              <% if (p.sourceCode) { %>
+                <a href="<%= p.sourceCode %>" class="githubLink" aria-label="Source code on GitHub" target="_blank" rel="noopener noreferrer">
+                  <i class="fa-brands fa-github" aria-hidden="true"></i>
+                </a>
+              <% } %>
+              <% if (p.liveLink) { %>
+                <a href="<%= p.liveLink %>" class="siteLink" aria-label="Open live site" target="_blank" rel="noopener noreferrer">
+                  <i class="fa-solid fa-square-arrow-up-right" aria-hidden="true"></i>
+                </a>
+              <% } %>
+            </article>
+          </section>
+        <% }) %>
+      </article>
+    </section>
+  </article>
+</section>
+
+<section id="contact" class="contact">
+  <article class="sectionContainer">
+    <h2 class="sectionTitle">Get In Touch</h2>
+    <section class="contactCard subContainer">
+      <p class="contactLead">Let’s build something great.</p>
+      <p class="contactCopy">
+        I’m open to freelance, internships, or full-time opportunities. If
+        you have a project or just want to say hi, my inbox is open.
+      </p>
+      <a id="contactBtn" class="contactBtn" href="mailto:mohamed.jalloh91@gmail.com">Say Hello</a>
+    </section>
+  </article>
+</section>

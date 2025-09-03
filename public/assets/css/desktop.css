@@ -1,0 +1,51 @@
+@media (min-width: 1024px) {
+
+
+    .actionMenu {
+
+        min-width: 130px;
+        flex: 1;
+
+    }
+
+
+    /* stop 3D transform and lay out front/back side-by-side */
+    .flip {
+        perspective: none;
+    }
+
+    .flip-inner {
+        transform: none;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        min-height: unset;
+    }
+
+    .flip-front, .flip-back {
+        position: static;
+        transform: none;
+        backface-visibility: visible;
+        -webkit-backface-visibility: visible;
+    }
+
+    /* hide info icon on desktop */
+    .links-flex .infoBox {
+        display: none;
+    }
+}
+
+
+@media (min-width: 1200px) {
+    #previewProject .subContainer {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .project-card-container {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        min-width: 90vw;
+        max-width: 700px;
+        place-items: center;
+    }
+
+}

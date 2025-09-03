@@ -1,0 +1,74 @@
+<% layout('layout') %>
+
+<section id="projects" class="projects">
+  <article class="sectionContainer">
+    <h2 class="sectionTitle">Some Things I've Built</h2>
+    <section id="myWorks" class="projectsContainer">
+      <article id="project-card-container" class="project-card-container">
+        <% (projects || []).forEach(p => { %>
+        <section class="projectCard">
+          <h3 class="project-title"><%= p.name %></h3>
+
+          <article class="flip" aria-live="polite">
+            <section class="flip-inner">
+              <article class="flip-front">
+                <img
+                  src="<%= p.image %>"
+                  alt="<%= p.name %>"
+                  class="project-img"
+                />
+              </article>
+              <article class="flip-back">
+                <section class="description-flex">
+                  <p class="description"><%= p.description %></p>
+                  <ul class="tech-list">
+                    <% (p.techStack || []).forEach(t => { %>
+                    <li class="tech-item"><%= t %></li>
+                    <% }) %>
+                  </ul>
+                </section>
+              </article>
+            </section>
+          </article>
+
+          <article class="links-flex">
+            <button
+              class="infoBox"
+              type="button"
+              aria-pressed="false"
+              title="More info"
+            >
+              <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+              <span class="sr-only">Toggle details</span>
+            </button>
+            <% if (p.sourceCode) { %>
+            <a
+              href="<%= p.sourceCode %>"
+              class="githubLink"
+              aria-label="Source code on GitHub"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fa-brands fa-github" aria-hidden="true"></i>
+            </a>
+            <% } %> <% if (p.liveLink) { %>
+            <a
+              href="<%= p.liveLink %>"
+              class="siteLink"
+              aria-label="Open live site"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i
+                class="fa-solid fa-square-arrow-up-right"
+                aria-hidden="true"
+              ></i>
+            </a>
+            <% } %>
+          </article>
+        </section>
+        <% }) %>
+      </article>
+    </section>
+  </article>
+</section>

@@ -1,0 +1,13 @@
+{
+  "navLinks": [
+    { "name": "Home", "href": "/index.html", "icon": "fa-solid fa-house" },
+    {
+      "name": "About",
+      "href": "/about.html",
+      "icon": "fa-solid fa-address-card"
+    },
+    { "name": "Projects", "href": "/project.html", "icon": "fa-solid fa-code" },
+
+    { "name": "Blogs", "href": "/blog.html", "icon": "fa-solid fa-blog" }
+  ]
+}

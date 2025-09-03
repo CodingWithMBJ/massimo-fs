@@ -1,0 +1,135 @@
+<% layout('layout') %>
+
+<section id="about" class="about">
+  <article class="aboutContainer">
+    <h2 class="sectionTitle">About Me</h2>
+    <section class="about-subContainer">
+      <article class="about-text">
+        <p>I am a <strong>self-taught Full-Stack Developer</strong>...</p>
+        <p>
+          My journey...
+          <a href="https://coursecareers.com/"
+            ><span class="xox">CourseCareer</span></a
+          >
+          and
+          <a href="https://www.coursera.org/"
+            ><span class="xox">Coursera</span></a
+          >...
+        </p>
+        <p>Passionate about continuous learning...</p>
+      </article>
+    </section>
+  </article>
+</section>
+
+<section id="experience" class="experience">
+  <article class="sectionContainer">
+    <h2 class="sectionTitle">Where I've Worked</h2>
+    <section class="subContainer expContainer">
+      <% (experiences || []).forEach(job => { const duration =
+      Array.isArray(job.duration) ? job.duration[0] : null; const started =
+      (duration && duration.startDate) ? duration.startDate : ""; const ended =
+      (duration && duration.endDate) ? duration.endDate : (duration &&
+      duration["stillEmployed?"] ? "Present" : ""); %>
+      <article class="exp-card">
+        <div class="exp-grid">
+          <figure class="exp-logo">
+            <% if (job.companyLogo) { %>
+            <img
+              src="<%= job.companyLogo %>"
+              alt="<%= job.company %> logo"
+              loading="lazy"
+            />
+            <% } else { %>
+            <span
+              ><%= (job.company || "?").split(/\s+/).map(w =>
+              w[0]).join("").slice(0,2).toUpperCase() %></span
+            >
+            <% } %>
+          </figure>
+
+          <header class="exp-header">
+            <h3 class="exp-company">
+              <%= job.company %> <% if (job.companyAlias) { %><span
+                class="exp-alias"
+              >
+                (<%= job.companyAlias %>)</span
+              ><% } %>
+            </h3>
+            <!-- tenure can be calculated client-side if you prefer; for now, show range -->
+            <p class="exp-tenure">
+              <%= [started, ended].filter(Boolean).join(" — ") %>
+            </p>
+          </header>
+
+          <section class="exp-body">
+            <h4 class="exp-title"><%= job.title %></h4>
+            <% if (job.location) { %>
+            <p class="exp-meta"><%= job.location %></p>
+            <% } %> <% const taskGroup = Array.isArray(job.tasks) ? job.tasks[0]
+            : null; const tasks = taskGroup ?
+            Object.values(taskGroup).filter(Boolean) : []; %> <% if
+            (tasks.length) { %>
+            <ul class="exp-tasks">
+              <% tasks.forEach(t => { %>
+              <li><%= t %></li>
+              <% }) %>
+            </ul>
+            <% } %> <% const techs = Array.isArray(job.technologiesUsed) ?
+            job.technologiesUsed : []; %> <% if (techs.length) { %>
+            <ul class="exp-tech">
+              <% techs.forEach(t => { %>
+              <li class="tech-chip"><%= t %></li>
+              <% }) %>
+            </ul>
+            <% } %>
+          </section>
+        </div>
+      </article>
+      <% }) %>
+    </section>
+  </article>
+</section>
+
+<section id="skills" class="skills">
+  <article class="sectionContainer">
+    <h2 class="sectionTitle">My Skills</h2>
+    <section class="subContainer">
+      <article id="skillsContainer" class="skillsContainer">
+        <% const techBlock = (skillsRoot || []).find(o => Object.hasOwn(o,
+        "Technical Skills")); const softBlock = (skillsRoot || []).find(o =>
+        Object.hasOwn(o, "Soft Skills")); const techGroups = (techBlock &&
+        techBlock["Technical Skills"]) || []; const softItems = (softBlock &&
+        softBlock["Soft Skills"]) || []; %> <% if (techGroups.length) { %>
+        <div class="skills-col technical">
+          <h3 class="skill-section-title">Technical Skills</h3>
+          <% techGroups.forEach(groupObj => { const pair =
+          Object.entries(groupObj)[0]; if (!pair) return; const [subcat, items]
+          = pair; const names = (items || []).map(it => it &&
+          it.name).filter(Boolean); %>
+          <section class="skill-group">
+            <h4 class="skill-cat"><%= subcat %></h4>
+            <ul class="skill-list">
+              <% names.forEach(n => { %>
+              <li><%= n %></li>
+              <% }) %>
+            </ul>
+          </section>
+          <% }) %>
+        </div>
+        <% } %> <% if (softItems.length) { %>
+        <div class="skills-col soft">
+          <h3 class="skill-section-title">Soft Skills</h3>
+          <section class="skill-group">
+            <ul class="skill-list">
+              <% softItems.forEach(it => { %>
+              <li><%= it.name %></li>
+              <% }) %>
+            </ul>
+          </section>
+        </div>
+        <% } %>
+      </article>
+    </section>
+  </article>
+</section>

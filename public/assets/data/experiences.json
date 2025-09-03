@@ -1,0 +1,102 @@
+{
+  "jobs": [
+    {
+      "company": "The Two Migrations",
+      "companyAlias": "",
+      "companyLogo": "https://media.licdn.com/dms/image/v2/D5603AQElBbq6nEX_tg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1725763025973?e=1759363200&v=beta&t=daoDk4lTBZnnHB9_pU6E-DhHkNkspsEod4GCZYFtaJQ",
+      "title": "Full-Stack Developer",
+      "location": "Saint Paul, MN",
+      "duration": [
+        {
+          "startDate": "September 2024",
+          "endDate": "",
+          "totalTime": "",
+          "stillEmployed?": true
+        }
+      ],
+      "tasks": [
+        {
+          "task1": "Responsible for company site and database data, and more",
+          "task2": "",
+          "task3": "",
+          "task4": "",
+          "task5": "",
+          "task6": ""
+        }
+      ],
+      "technologiesUsed": [
+        "HTMl",
+        "CSS",
+        "JS",
+        "React.js/Next.js",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "MaterialUI",
+        "TailwindCSS"
+      ]
+    },
+    {
+      "company": "New Vision Foundation",
+      "companyAlias": "NVF",
+      "companyLogo": "https://www.nu-viz.org/wp-content/uploads/2020/03/NVF-Logo-Dark@2x-1-1.png",
+      "title": "Coding Instructor Intern",
+      "location": "Saint Paul, MN",
+      "duration": [
+        {
+          "startDate": "April 2025",
+          "endDate": "May 2025",
+          "totalTime": "",
+          "stillEmployed?": false
+        }
+      ],
+      "tasks": [
+        {
+          "task1": "Teach elementary students how to code",
+          "task2": "Teach programming languages like JavaScript",
+          "task3": "Assist with equipment setup",
+          "task4": "Assist students with classwork and assignments",
+          "task5": "Review and prepare lessons for class",
+          "task6": ""
+        }
+      ],
+      "technologiesUsed": ["JS"]
+    },
+    {
+      "company": "Upwork",
+      "companyAlias": "Upwork",
+      "companyLogo": "https://www.citypng.com/public/uploads/preview/upwork-round-logo-icon-png-7017516949686332n4bo69bd8.png",
+      "title": "Frontend Developer Freelancer",
+      "location": "Remote",
+      "duration": [
+        {
+          "startDate": "March 2024",
+          "endDate": "April 2025",
+          "totalTime": "",
+          "stillEmployed?": false
+        }
+      ],
+      "tasks": [
+        {
+          "task1": "Created requested projects for clients",
+          "task2": "Developed static web pages, landing pages, and portfolio sites",
+          "task3": "",
+          "task4": "",
+          "task5": "",
+          "task6": ""
+        }
+      ],
+      "technologiesUsed": [
+        "HTMl",
+        "CSS",
+        "JS",
+        "React.js/Next.js",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "MaterialUI",
+        "TailwindCSS"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+[
+  {
+    "name": "",
+    "description": "",
+    "techStack": [],
+    "image": "",
+    "liveLink": "",
+    "sourceCode": ""
+  },
+  {
+    "name": "",
+    "description": "",
+    "techStack": [],
+    "image": "",
+    "liveLink": "",
+    "sourceCode": ""
+  },
+  {
+    "name": "",
+    "icon": "",
+    "link": ""
+  },
+  {
+    "name": "",
+    "icon": "",
+    "link": ""
+  },
+  {
+    "name": "",
+    "icon": "",
+    "link": ""
+  },
+  {
+    "name": "Experience",
+    "href": "#experience",
+    "icon": "fa-solid fa-building"
+  },
+  {
+    "name": "Skills",
+    "href": "#skills",
+    "icon": "fa-solid fa-code-branch"
+  },
+  {
+    "name": "Contact",
+    "href": "#contact",
+    "icon": "fa-solid fa-address-book"
+  }
+]

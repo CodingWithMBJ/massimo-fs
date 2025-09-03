@@ -1,0 +1,28 @@
+<header id="header" class="header">
+  <div class="header-container">
+    <nav id="nav" class="nav">
+      <ul class="nav-ul">
+        <% (navLinks || []).forEach(({name, href, icon}) => { %>
+        <li class="nav-li">
+          <a
+            class="nav-li-a"
+            href="<%= href || '#' %>"
+            aria-label="<%= name %>"
+          >
+            <% if (icon) { %>
+            <i class="<%= icon %>" aria-hidden="true"></i>
+            <% } %>
+            <span class="nav-text"><%= name %></span>
+          </a>
+        </li>
+        <% }) %>
+      </ul>
+    </nav>
+
+    <div class="actionMenu">
+      <button id="themeBtn" class="themeBtn">
+        <span id="themeIndicator" class="themeIndicator"></span>
+      </button>
+    </div>
+  </div>
+</header>

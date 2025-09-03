@@ -1,0 +1,40 @@
+@media (min-width: 768px) {
+
+
+    .actionMenu {
+
+        min-width: 130px;
+        flex: 1;
+
+    }
+
+    #previewProject .subContainer {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .project-card-container {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        min-width: 90vw;
+        max-width: 700px;
+        place-items: center;
+    }
+
+}
+
+
+@media (min-width: 900px) {
+    .exp-card {
+        padding: 20px;
+    }
+
+    .exp-grid {
+        grid-template-columns: 96px 1fr;
+        column-gap: 1.25rem;
+    }
+
+    .exp-logo {
+        width: 96px;
+        height: 96px;
+        border-radius: 16px;
+    }
+}

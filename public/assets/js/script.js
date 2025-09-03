@@ -1,4 +1,4 @@
-// /assets/js/script.js
+// /public/assets/js/script.js
 window.addEventListener("DOMContentLoaded", () => {
   // ===== Helpers =====
   const escapeHTML = (str) =>
@@ -41,6 +41,10 @@ window.addEventListener("DOMContentLoaded", () => {
 
   // ===== NAV =====
   (function nav() {
+    const nav = document.getElementById("nav");
+    // If SSR already provided a UL (EJS rendered), do nothing.
+    if (!nav || nav.querySelector(".nav-ul")) return;
+
     async function fetchNavLinks() {
       try {
         const res = await fetch("/assets/data/navLinks.json");
@@ -52,8 +56,7 @@ window.addEventListener("DOMContentLoaded", () => {
           ? data.navLink
           : [];
 
-        const nav = document.getElementById("nav");
-        if (!nav || !navLinks.length) return;
+        if (!navLinks.length) return;
 
         const ul = document.createElement("ul");
         ul.className = "nav-ul";
@@ -95,6 +98,8 @@ window.addEventListener("DOMContentLoaded", () => {
   (function socials() {
     const socialBio = document.querySelector(".social-bio");
     if (!socialBio) return;
+    // If SSR already provided a UL (EJS rendered), do nothing.
+    if (socialBio.querySelector(".social-ul")) return;
 
     async function fetchSocialLinks() {
       try {
@@ -164,7 +169,7 @@ window.addEventListener("DOMContentLoaded", () => {
     myStatus.append(status, hireMe);
   })();
 
-  // ===== EXPERIENCES (unchanged behavior) =====
+  // ===== EXPERIENCES =====
   (function experiences() {
     const container = document.querySelector(".expContainer");
     if (!container) return;
@@ -371,7 +376,7 @@ window.addEventListener("DOMContentLoaded", () => {
     renderExperiences();
   })();
 
-  // ===== SKILLS (unchanged) =====
+  // ===== SKILLS =====
   (function skillsSeparated() {
     const container = document.getElementById("skillsContainer");
     if (!container) return;
@@ -593,16 +598,24 @@ window.addEventListener("DOMContentLoaded", () => {
             <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
             <span class="sr-only">Toggle details</span>
           </button>
-          <a href="${escapeHTML(
+          ${
             sourceCode
-          )}" class="githubLink" aria-label="Source code on GitHub" target="_blank" rel="noopener noreferrer">
-            <i class="fa-brands fa-github" aria-hidden="true"></i>
-          </a>
-          <a href="${escapeHTML(
+              ? `<a href="${escapeHTML(
+                  sourceCode
+                )}" class="githubLink" aria-label="Source code on GitHub" target="_blank" rel="noopener noreferrer">
+                   <i class="fa-brands fa-github" aria-hidden="true"></i>
+                 </a>`
+              : ""
+          }
+          ${
             liveLink
-          )}" class="siteLink" aria-label="Open live site" target="_blank" rel="noopener noreferrer">
-            <i class="fa-solid fa-square-arrow-up-right" aria-hidden="true"></i>
-          </a>
+              ? `<a href="${escapeHTML(
+                  liveLink
+                )}" class="siteLink" aria-label="Open live site" target="_blank" rel="noopener noreferrer">
+                   <i class="fa-solid fa-square-arrow-up-right" aria-hidden="true"></i>
+                 </a>`
+              : ""
+          }
         </article>
       </section>
     `;
